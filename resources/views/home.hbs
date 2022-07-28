@@ -1,0 +1,38 @@
+{{>header}}
+{{>navbar}}
+<div class="container">
+    {{#if hasData}}
+    <table class="table ">
+     <thead>
+        <tr>
+            <th>#</th>
+            <th>name</th>
+            <th>age</th>
+            <th>job</th>
+            <th>acthion</th>
+        </tr>
+     </thead>
+     <tbody>
+        {{#each result}}
+        <tr>
+            <td>{{this._id}}</td>
+            <td>{{this.name}}</td>
+            <td>{{this.age}}</td>
+            <td>{{this.job}}</td>
+            <td>
+                <a href="/single/{{this._id}}" class="btn btn-primary">show</a>
+                <a href="/delete/{{this._id}}" class="btn btn-danger">delete</a>
+                <a href="/edit/{{this._id}}" class="btn btn-warning">Edit</a>
+                
+            </td>
+        </tr>
+        {{/each}}
+     </tbody>
+    </table>
+    {{else}}
+    <div class="alert alert-danger">
+        no users here
+    </div>
+    {{/if}}
+</div>
+{{>footer}}

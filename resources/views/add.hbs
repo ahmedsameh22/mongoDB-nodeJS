@@ -1,0 +1,28 @@
+{{>header}}
+{{>navbar}}
+<section class="container">
+<form method="post" action="/addLogic"> 
+    <div class="mb-3">
+        <input class="form-control w-50 mb-2" name="name" type="text" placeholder="Enter your Name">
+    </div>
+    <div class="mb-3">
+        <input class="form-control w-50 mb-2" name="age" type="number" placeholder="Enter YOur AGe">
+    </div>
+    <div class="mb-3">
+        <input class="form-control w-50 mb-2" name="job" type="text" placeholder="enter YOur JOb">
+    </div>
+    <div class="mb-3">
+        <select class="form-control w-50 mb-2" name="userType" type="text" >
+            <option selected disabled>plese enter type </option>
+            {{#each userType}}
+            <option value="{{this}}">{{this}} </option>
+            {{/each}}
+        </select>
+    </div>
+    <div class="mb-3">
+        <button class="btn  btn-primary mb-3"> add USer</button>
+
+    </div>
+</form>
+</section>
+{{>footer}}

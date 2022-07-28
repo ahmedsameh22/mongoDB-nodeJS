@@ -1,0 +1,16 @@
+require("dotenv").config();
+const express = require("express");
+const path = require("path");
+const app = express();
+const hbs = require("hbs");
+const publicDir = path.join(__dirname, "../resources/public");
+const viewsDir = path.join(__dirname, "../resources/views");
+const layoutsDir = path.join(__dirname, "../resources/layouts");
+hbs.registerPartials(layoutsDir);
+app.set("view engine", "hbs");
+app.set("views", viewsDir);
+app.use(express.static(publicDir));
+const userRoute = require("../routes/user.route");
+app.use(express.urlencoded({ extended: true }));
+app.use(userRoute);
+module.exports = app;
